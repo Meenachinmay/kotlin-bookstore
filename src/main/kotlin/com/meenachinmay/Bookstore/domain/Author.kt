@@ -6,19 +6,19 @@ import jakarta.persistence.*
 @Table(name = "authors")
 data class Author(
     @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "author_id_seq")
-    var id: Long?,
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    var id: Long = 0,
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, length = 50)
     var name: String,
 
-    @Column(name = "email")
+    @Column(name = "age", nullable = false, length = 50)
     var age: Int,
 
-    @Column(name = "description")
+    @Column(name = "description", nullable = false, length = 255)
     var description: String,
 
-    @Column(name = "image")
+    @Column(name = "image", nullable = true)
     var image: String
 )

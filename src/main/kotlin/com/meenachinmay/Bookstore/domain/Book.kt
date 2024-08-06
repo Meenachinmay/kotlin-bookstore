@@ -6,19 +6,19 @@ import jakarta.persistence.*
 @Table(name = "books")
 data class Book(
     @Id
-    @Column(name = "isbn")
-    var isbn: Long,
+    @Column(name = "isbn", nullable = false)
+    var isbn: String,
 
-    @Column(name = "title")
+    @Column(name = "title", nullable = false)
     var title: String,
 
-    @Column(name = "description")
+    @Column(name = "description", nullable = false)
     var description: String,
 
-   @Column(name = "image")
+   @Column(name = "image", nullable = false)
     var image: String,
 
     @ManyToOne(cascade = [(CascadeType.DETACH)])
-    @JoinColumn(name = "author")
+    @JoinColumn(name = "author_id")
     var author: Author,
 )
